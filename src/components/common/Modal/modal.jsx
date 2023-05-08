@@ -3,7 +3,7 @@ import { Button,Modal } from 'antd';
 import './modal.scss';
 
 
-const ModalWindow = ({modal1Open, setModal1Open, setStatus, status}) => {
+const ModalWindow = ({modal1Open, setModal1Open, setStatus, status, sendStatus}) => {
   return (
     <>
       <Modal
@@ -16,10 +16,10 @@ const ModalWindow = ({modal1Open, setModal1Open, setStatus, status}) => {
           <Button key="submit" 
                   type="primary" 
                   disabled={status.length > 0 ? false : true}
+                  onClick={() => sendStatus}
           >
             Post
           </Button>
-        
         ]}>
         
         <input className='modal-input' 
