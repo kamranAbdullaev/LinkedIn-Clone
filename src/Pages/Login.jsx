@@ -9,11 +9,11 @@ import { useNavigate } from 'react-router-dom'
 export default function Login() {
 
   let navigate = new useNavigate();
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     onAuthStateChanged(auth, res => {
       if(res?.accessToken){
-        navigate('/home')
+        // navigate('/home')
       }else{
         setLoading(false)
       }
