@@ -1,9 +1,10 @@
 import React from 'react'
+import PostUpdate from './common/PostUpdate/postUpdate'
 
 export default function HomeComponent() {
   return (
-    <div>
-      <h1>HomeComponent</h1>
+    <div className="home-component">
+      <PostUpdate /> 
       </div>
   )
 }
