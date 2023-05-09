@@ -22,6 +22,7 @@ let navigate = useNavigate();
       let res = await LoginAPI(credentails.email, credentails.password)
       toast.success('Signed In to LinkedIn!')
       navigate('/home')
+      console.log(res);
     } catch (error) {
       toast.error('Please Check your Credentials')
       console.dir(error);

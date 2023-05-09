@@ -5,7 +5,7 @@ import './modal.scss';
 
 const ModalWindow = ({modal1Open, setModal1Open, setStatus, status, sendStatus}) => {
   return (
-    <>
+    <div className='modal'>
       <Modal
         title="Create a post"
         centered
@@ -16,7 +16,7 @@ const ModalWindow = ({modal1Open, setModal1Open, setStatus, status, sendStatus})
           <Button key="submit" 
                   type="primary" 
                   disabled={status.length > 0 ? false : true}
-                  onClick={() => sendStatus}
+                  onClick={sendStatus}
           >
             Post
           </Button>
@@ -30,7 +30,7 @@ const ModalWindow = ({modal1Open, setModal1Open, setStatus, status, sendStatus})
       </Modal>
       <br />
   
-    </>
+    </div>
   );
 };
 
