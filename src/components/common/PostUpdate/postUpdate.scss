@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  // background-color:rgba(223, 223, 223, 0.7);
   .post-status{
     width: 50%;
     height: 180px;
@@ -34,6 +33,7 @@
     }
   }
   .post-card{
+    padding-bottom: 40px;
     width: 50%;
     
   }

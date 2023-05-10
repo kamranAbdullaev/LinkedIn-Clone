@@ -36,23 +36,25 @@ const googleSignIn = async() => {
 }
 
   return (
+<div className='wraperWraperLogin'>
     <div className="login-wrapper">
       <img src={LinkedinLogoImage}
        alt="" 
        className='linkedinLogo'/>
       <div className="login-wrapper-inner">
         <h1 className="heading">Sign in</h1>
-        <p className="sub-heading">Stay updated on your professional world</p>
-        <div className="auth-inputs">
+          <p className="sub-heading">Stay updated on your professional world</p>
+          <div className="auth-inputs">
       <Form>
       <Form.Group className="mb-3" controlId="formGroupEmail">
         <Form.Label className='textLabel'>Email address</Form.Label>
+          
         <Form.Control 
         type="email"
         placeholder="Enter email" 
         onChange={(event) =>
-              setCredentials({ ...credentails, email: event.target.value })
-            }/>
+          setCredentials({ ...credentails, email: event.target.value })
+        }/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formGroupPassword">
         <Form.Label className='textLabel'>Password</Form.Label>
@@ -60,11 +62,10 @@ const googleSignIn = async() => {
         type="password" 
         placeholder="Password" 
         onChange={(event) =>
-            setCredentials({ ...credentails, password: event.target.value })
-            }/>
+          setCredentials({ ...credentails, password: event.target.value })
+        }/>
       </Form.Group>
     </Form>
-   
         </div>
         <Button onClick={login} className="login-btn">
           Sign in
@@ -81,5 +82,6 @@ const googleSignIn = async() => {
     </div>
           <p className='joinNow'>New to LinkedIn? <span className='joinNowA' onClick={() => navigate('/register')}>Join Now</span></p>
     </div>
+</div>
   )
 }

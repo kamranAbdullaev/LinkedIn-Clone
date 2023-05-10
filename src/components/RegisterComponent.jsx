@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {Form,Button} from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import GoogleButton from 'react-google-button'
-
+import { postUserData } from '../api/FirestoreAPI';
 import LinkedinLogoImage from '../assets/linkedinLogo.png'
 import '../Sass/LoginComponent.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,6 +21,7 @@ let navigate = useNavigate();
     try {
       let res = await RegisterAPI(credentails.email, credentails.password)
       toast.success('Account Created!')
+      postUserData({name: credentails.name, email: credentails.email})
       navigate('/home')
       localStorage.setItem('userEmail', res.user.email);
     } catch (error) {
@@ -46,6 +47,15 @@ const googleSignIn = async() => {
 
         <div className="auth-inputs">
       <Form>
+        <Form.Group className="mb-3" controlId="formGroupEmail">
+        <Form.Label className='textLabel'>Your Name</Form.Label>
+        <Form.Control 
+            type="text"
+            placeholder="Your Name" 
+            onChange={(event) =>
+            setCredentials({ ...credentails, name: event.target.value })
+            }/>
+        </Form.Group>  
       <Form.Group className="mb-3" controlId="formGroupEmail">
         <Form.Label className='textLabel'>Email or phone number</Form.Label>
         <Form.Control 

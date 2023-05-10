@@ -1,18 +1,24 @@
 $linkedInColor: rgb(46, 151, 248);
 
-
-.login-wrapper{
-  width: 400px;
+.wraperWraperLogin{
   display: flex;
   text-align: center;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  position: relative;
+  margin-top: 3%;
+  overflow-x: hidden;
+}
+
+.login-wrapper-inner{
+  width: 100%;
+}
+.login-wrapper{
+  width: 400px;
 }
 
 .linkedinLogo{
-  width: 400px;
+  width: 90%;
   margin-bottom: 70px;
 }
 .sub-heading{
@@ -77,7 +83,10 @@ $linkedInColor: rgb(46, 151, 248);
   justify-content: center;
   display: flex;
 }
-
+.auth-inputs{
+  width: 80%;
+  margin: 0 auto;
+}
 
 .joinNow{
   margin-top: 30px;
@@ -90,4 +99,12 @@ $linkedInColor: rgb(46, 151, 248);
   text-decoration: none;
   cursor: pointer;
   color: $linkedInColor
+}
+
+.form-control {
+  width: 100px;
+}
+
+@media (max-width: 480px) {
+  
 }

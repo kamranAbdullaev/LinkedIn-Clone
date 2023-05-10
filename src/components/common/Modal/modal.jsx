@@ -22,7 +22,7 @@ const ModalWindow = ({modal1Open, setModal1Open, setStatus, status, sendStatus})
           </Button>
         ]}>
         
-        <input className='modal-input' 
+        <textarea className='modal-input' 
                placeholder='What do you want to talk about?' 
                onChange={(event) => setStatus(event.target.value)}
                value={status}
