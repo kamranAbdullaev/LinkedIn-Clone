@@ -35,7 +35,6 @@ const googleSignIn = async() => {
   navigate('/home')
 }
 
-
   return (
     <div className="login-wrapper">
       <img src={LinkedinLogoImage}
