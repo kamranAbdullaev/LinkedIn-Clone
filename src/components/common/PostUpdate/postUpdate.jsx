@@ -7,6 +7,7 @@ import { getCurrentTimeStamp } from '../../../helpers/useMoment';
 
 
 export default function PostUpdate() {
+  let userEmail = localStorage.getItem('userEmail');
   const [modal1Open, setModal1Open] = useState(false);
   const [status, setStatus] = useState('')
   const [allStatus, setAllStatus] = useState([]);
@@ -15,7 +16,8 @@ export default function PostUpdate() {
   const sendStatus = async () => { 
     let object = {
       status: status,
-      timeStamp: getCurrentTimeStamp('LLL')
+      timeStamp: getCurrentTimeStamp('LLL'),
+      userEmail: userEmail,
     }
     await PostStatus(object)
     await setModal1Open(false)

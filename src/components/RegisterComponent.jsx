@@ -22,7 +22,7 @@ let navigate = useNavigate();
       let res = await RegisterAPI(credentails.email, credentails.password)
       toast.success('Account Created!')
       navigate('/home')
-      console.log(res);
+      localStorage.setItem('userEmail', res.user.email);
     } catch (error) {
       toast.error('Can\'t Create your Account')
       console.dir(error);

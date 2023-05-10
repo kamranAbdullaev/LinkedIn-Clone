@@ -1,18 +1,26 @@
 .posts-card{
   position: relative;
-  height: 400px;
+  height: 350px;
   background-color: rgba(255, 255, 255, 0.527);
   margin-top: 30px;
   border: 1px solid #c4c4c4;
   border-radius: 7px;
   display: flex;
-  align-items: center;
+  text-align: left;
+  flex-direction: column;
+ 
   .status{
-    text-align: left;
-    padding: 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: rgba(0,0,0,0.9);
+    margin: 10px 0 0px 10px;
+  }
+  .timestamp{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    margin: 10px 0 0px 10px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 400;
   }
 }
