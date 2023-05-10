@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function RegisterComponent() {
 let navigate = useNavigate();
   const [credentails, setCredentials] = useState({});
+  
 //------Вход
   const regist = async () => {
     try {
