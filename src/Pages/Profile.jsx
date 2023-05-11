@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo} from 'react'
+import React, {useState, useEffect} from 'react'
 import ProfileComponent from '../components/ProfileComponent'
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";

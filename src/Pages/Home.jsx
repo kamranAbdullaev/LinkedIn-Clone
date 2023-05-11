@@ -8,9 +8,8 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Home({currentUser}) {
 
-  let navigate = new useNavigate();
   const [loading, setLoading] = useState(true)
-
+  let navigate = new useNavigate();
 
   useEffect(() => {
     onAuthStateChanged(auth, res => {
