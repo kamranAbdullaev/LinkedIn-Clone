@@ -1,0 +1,23 @@
+.profile-card{
+  .edit-btn{
+
+  }
+  .profile-edit-inputs{
+    display: grid;
+    margin-top: 70px;
+    gap: 30%;
+    .edit-input{
+      width: 50%;
+      height: 150%;
+      border: none;
+      outline:none;
+      border-bottom: 1px solid rgb(143, 143, 143);
+    }
+  }
+  .btn-save{
+    width: 120px;
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+  }
+}
