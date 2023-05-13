@@ -12,9 +12,9 @@ console.log(currentUser);
     setEditInput({...editInput, ...input});
   }
 
-  
-  const updateProfileData = () => {
-    editProfile(currentUser?.currentUser.userID, editInput);
+  const updateProfileData = async () => {
+    await editProfile(currentUser?.currentUser.userID, editInput);
+    await onEdit();
   }
 
   return (
