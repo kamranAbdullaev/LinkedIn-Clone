@@ -31,5 +31,11 @@
     margin: 10px 0 0px 10px;
     color: rgba(0, 0, 0, 0.6);
     font-weight: 600;
+    width: auto;
+  }
+  .nameUser:hover{
+    color: rgb(24, 125, 207);
+    text-decoration:underline;
+    cursor: pointer;
   }
 }
