@@ -41,7 +41,9 @@ export default function ProfileCard({ onEdit }) {
            </div>
           </div>
            <div>
-              {allStatus.map((posts) => {
+            {allStatus.filter((item) => {
+                return item.userEmail === localStorage.getItem('userEmail')
+              }).map((posts) => {
                 return (
                   <div  className='postCard2' key={posts.id}>
                     <PostCard posts={posts}/>

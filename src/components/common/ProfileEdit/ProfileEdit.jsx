@@ -4,8 +4,9 @@ import Button from 'react-bootstrap/Button';
 import { editProfile } from '../../../api/FirestoreAPI';
 
 export default function ProfileEdit({ onEdit, currentUser }) {
+
   const [editInput, setEditInput] = useState({});
-console.log(currentUser);
+
   const getInput = (event) => {
     let { name, value } = event.target;
     let input = { [name]: value }
@@ -19,7 +20,7 @@ console.log(currentUser);
 
   return (
     <div className='ool'>
-    <div className='profile-card'>
+     <div className='profile-card'>
       <div className='edit-btn'>
         <Button variant="light" onClick={onEdit}>Back</Button>
       </div> 
