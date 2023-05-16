@@ -1,4 +1,4 @@
-# Features
+# LinkedIn Clone
 
 
 1. Authentication
