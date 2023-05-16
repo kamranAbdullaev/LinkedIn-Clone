@@ -52,7 +52,8 @@ export const uploadPostImage = (file, setPostImage, setProgress) => {
       console.error(err);
     },
     () => {
-      getDownloadURL(uploadTask.snapshot.ref).then((response) => {
+      getDownloadURL(uploadTask.snapshot.ref)
+        .then((response) => {
         setPostImage(response);
       });
     }
