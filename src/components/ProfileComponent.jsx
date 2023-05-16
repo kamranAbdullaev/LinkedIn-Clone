@@ -1,26 +1,20 @@
-import React, {useState, useMemo} from 'react'
-import ProfileCard from '../components/common/ProfileCard/ProfileCard'
-import ProfileEdit from './common/ProfileEdit/ProfileEdit';
-import '../Sass/profileComponent.scss'
-import { getCurrentUser } from '../api/FirestoreAPI';
+import React, { useState } from "react";
+import ProfileCard from "./common/ProfileCard";
+import ProfileEdit from "./common/ProfileEdit";
 
-export default function ProfileComponent() {
-  const [isEdit, setIsEdit] = useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+export default function ProfileComponent({ currentUser }) {
+  const [isEdit, setisEdit] = useState(false);
 
   const onEdit = () => {
-    setIsEdit(!isEdit)
-  }
-
-useMemo(() => {
-  getCurrentUser(setCurrentUser)
-}, [])
-  
-  let user = { currentUser }
+    setisEdit(!isEdit);
+  };
   return (
-    <div className='profile-card-One'>
-      {isEdit ? <ProfileEdit onEdit={onEdit} currentUser={user}/> : <ProfileCard onEdit={onEdit} />}
-      
+    <div>
+      {isEdit ? (
+        <ProfileEdit onEdit={onEdit} currentUser={currentUser} />
+      ) : (
+        <ProfileCard currentUser={currentUser} onEdit={onEdit} />
+      )}
     </div>
-  )
+  );
 }

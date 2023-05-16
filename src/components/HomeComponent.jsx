@@ -1,10 +1,11 @@
-import React from 'react'
-import PostUpdate from './common/PostUpdate/postUpdate'
+import React from "react";
+import "../Sass/HomeComponent.scss";
+import PostStatus from "./common/PostUpdate";
 
-export default function HomeComponent({currentUser}) {
+export default function HomeComponent({ currentUser }) {
   return (
     <div className="home-component">
-      <PostUpdate currentUser={currentUser} /> 
-      </div>
-  )
+      <PostStatus currentUser={currentUser} />
+    </div>
+  );
 }

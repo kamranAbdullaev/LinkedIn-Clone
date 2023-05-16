@@ -1,41 +1,61 @@
-$linkedInColor: rgb(46, 151, 248);
+$linkedinBlue1: #0072b1;
+$linkedinBlue2: #0073b1;
+$linkedinBlue3: #004c75;
 
-.wraperWraperLogin{
-  display: flex;
-  text-align: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 3%;
-  overflow-x: hidden;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.login-wrapper-inner{
-  width: 100%;
-}
-.login-wrapper{
-  width: 400px;
+.login-wrapper {
+  background-color: white !important;
+  height: 100vh;
+  .login-wrapper-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .heading {
+    font-family: system-ui;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.9);
+  }
+
+  .sub-heading {
+    margin-top: -20px;
+    font-family: system-ui;
+  }
 }
 
-.linkedinLogo{
-  width: 90%;
-  margin-bottom: 70px;
-}
-.sub-heading{
-  font-style: italic;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.login-btn{
+.login-btn {
   width: 300px;
+  height: 50px;
+  cursor: pointer;
+  background-color: $linkedinBlue2;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  font-family: system-ui;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
   margin-top: 20px;
 }
 
-.textLabel{
-  text-align: left;
-  font-size: 18px;
-  font-weight: 500;
-  font-style: italic;
+.login-btn:hover {
+  background-color: $linkedinBlue3;
+}
+
+.auth-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+.linkedinLogo {
+  width: 80px;
 }
 
 .hr-text {
@@ -46,12 +66,12 @@ $linkedInColor: rgb(46, 151, 248);
   color: black;
   text-align: center;
   height: 1.5em;
-  opacity: .5;
+  opacity: 0.5;
   &:before {
-    content: '';
+    content: "";
     // use the linear-gradient for the fading effect
     // use a solid background color for a solid bar
-    background: linear-gradient(to right, transparent, #7c7b77, transparent);
+    background: linear-gradient(to right, transparent, #818078, transparent);
     position: absolute;
     left: 0;
     top: 50%;
@@ -64,47 +84,32 @@ $linkedInColor: rgb(46, 151, 248);
     display: inline-block;
     color: black;
 
-    padding: 0 .5em;
+    padding: 0 0.5em;
     line-height: 1.5em;
     // this is really the only tricky part, you need to specify the background color of the container element...
-    color: #41403c;
-    background-color: rgba(223, 223, 223, 0.7);
+    color: #818078;
+    background-color: #fcfcfa;
   }
 }
 
-.signInWithGoogle{
-  background-color: rgb(255, 255, 255);
-  border-radius: 50px;
-  width: 300px;
-  margin-left: 50px;
-  position:relative;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+.google-btn-container {
   display: flex;
-}
-.auth-inputs{
-  width: 80%;
-  margin: 0 auto;
-}
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-.joinNow{
-  margin-top: 30px;
-  text-decoration: none;
-  font-size: 19px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+  .google-btn {
+    width: 300px !important;
+  }
 
-.joinNowA{
-  text-decoration: none;
-  cursor: pointer;
-  color: $linkedInColor
-}
+  .go-to-signup {
+    font-size: 18px;
+  }
 
-.form-control {
-  width: 100px;
-}
-
-@media (max-width: 480px) {
-  
+  .join-now {
+    color: $linkedinBlue1;
+    font-family: system-ui;
+    cursor: pointer;
+    font-size: 18px;
+  }
 }

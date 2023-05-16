@@ -1,96 +1,80 @@
-import React, {useState} from 'react'
-import { RegisterAPI, GoogleSigInAPI } from '../api/AuthAPI'
-import { useNavigate } from 'react-router-dom';
-import {Form,Button} from 'react-bootstrap';
-import { toast } from 'react-toastify';
-import GoogleButton from 'react-google-button'
-import { postUserData } from '../api/FirestoreAPI';
-import LinkedinLogoImage from '../assets/linkedinLogo.png'
-import '../Sass/LoginComponent.scss'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
+import React, { useState } from "react";
+import { RegisterAPI } from "../api/AuthAPI";
+import { postUserData } from "../api/FirestoreAPI";
+import LinkedinLogo from "../assets/linkedinLogo.png";
+import { useNavigate } from "react-router-dom";
+import { getUniqueID } from "../helpers/getUniqueId";
+import "../Sass/LoginComponent.scss";
+import { toast } from "react-toastify";
 
 export default function RegisterComponent() {
-let navigate = useNavigate();
+  let navigate = useNavigate();
   const [credentails, setCredentials] = useState({});
-  
-//------Вход
-  const regist = async () => {
+  const register = async () => {
     try {
-      let res = await RegisterAPI(credentails.email, credentails.password)
-      toast.success('Account Created!')
-      postUserData({name: credentails.name, email: credentails.email})
-      navigate('/home')
-      localStorage.setItem('userEmail', res.user.email);
-    } catch (error) {
-      toast.error('Can\'t Create your Account')
-      console.dir(error);
+      let res = await RegisterAPI(credentails.email, credentails.password);
+      toast.success("Account Created!");
+      postUserData({
+        userID: getUniqueID(),
+        name: credentails.name,
+        email: credentails.email,
+        imageLink:
+          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+      });
+      navigate("/home");
+      localStorage.setItem("userEmail", res.user.email);
+    } catch (err) {
+      console.log(err);
+      toast.error("Cannot Create your Account");
     }
-  }
-
-// ---- Вход с помощью Гугла
-const googleSignIn = async() => {
-  let res = await GoogleSigInAPI();
-    navigate('/home')
-}
-
+  };
 
   return (
     <div className="login-wrapper">
-      <img src={LinkedinLogoImage}
-       alt="" 
-       className='linkedinLogo'/>
+      <img src={LinkedinLogo} className="linkedinLogo" />
+
       <div className="login-wrapper-inner">
         <h1 className="heading">Make the most of your professional life</h1>
 
         <div className="auth-inputs">
-      <Form>
-        <Form.Group className="mb-3" controlId="formGroupEmail">
-        <Form.Label className='textLabel'>Your Name</Form.Label>
-        <Form.Control 
-            type="text"
-            placeholder="Your Name" 
+          <input
             onChange={(event) =>
-            setCredentials({ ...credentails, name: event.target.value })
-            }/>
-        </Form.Group>  
-      <Form.Group className="mb-3" controlId="formGroupEmail">
-        <Form.Label className='textLabel'>Email or phone number</Form.Label>
-        <Form.Control 
-        type="email"
-        placeholder="Email or phone number" 
-        onChange={(event) =>
-              setCredentials({ ...credentails, email: event.target.value })
-            }/>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formGroupPassword">
-        <Form.Label className='textLabel'>Password (6 or more characters)</Form.Label>
-        <Form.Control 
-        type="password" 
-        placeholder="Password (6 or more characters)" 
-        onChange={(event) =>
-            setCredentials({ ...credentails, password: event.target.value })
-            }/>
-      </Form.Group>
-    </Form>
-   
-        </div>
-        <Button onClick={regist} className="login-btn">
-          Agree & Join
-        </Button>
-      </div>
-      <hr className='hr-text' data-content='or'/>
-    <div className='signInWithGoogle'>
-      <GoogleButton
-          label='Sign in with Google'
-          type="light"
-          style={{'marginLeft':'5px','boxShadow':'none'}}
-          onClick={googleSignIn}
+              setCredentials({ ...credentails, name: event.target.value })
+            }
+            type="text"
+            className="common-input"
+            placeholder="Your Name"
           />
+          <input
+            onChange={(event) =>
+              setCredentials({ ...credentails, email: event.target.value })
+            }
+            type="email"
+            className="common-input"
+            placeholder="Email or phone number"
+          />
+          <input
+            onChange={(event) =>
+              setCredentials({ ...credentails, password: event.target.value })
+            }
+            type="password"
+            className="common-input"
+            placeholder="Password (6 or more characters)"
+          />
+        </div>
+        <button onClick={register} className="login-btn">
+          Agree & Join
+        </button>
+      </div>
+      <hr class="hr-text" data-content="or" />
+      <div className="google-btn-container">
+        <p className="go-to-signup">
+          Already on LinkedIn?{" "}
+          <span className="join-now" onClick={() => navigate("/")}>
+            Sign in
+          </span>
+        </p>
+      </div>
     </div>
-          <p className='joinNow'>Already on LinkedIn? <span className='joinNowA' onClick={() => navigate('/')}>Sign in</span></p>
-    </div>
-  )
+  );
 }

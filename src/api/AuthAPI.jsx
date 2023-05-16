@@ -1,44 +1,44 @@
-import {signInWithEmailAndPassword, createUserWithEmailAndPassword,GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
-import { auth } from '../firebaseConfig';
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../firebaseConfig";
 
-// Вход
-export const  LoginAPI = (email, password) => {
-
+export const LoginAPI = (email, password) => {
   try {
-    let res = signInWithEmailAndPassword(auth, email, password)
-    return res;
-  }catch(err){
-   return err
+    let response = signInWithEmailAndPassword(auth, email, password);
+    return response;
+  } catch (err) {
+    return err;
   }
 };
 
-// Регистрация 
-export const  RegisterAPI = (email, password) => {
+export const RegisterAPI = (email, password) => {
   try {
-    let res = createUserWithEmailAndPassword(auth, email, password)
-    return res;
-  }catch(err){
-   return err
+    let response = createUserWithEmailAndPassword(auth, email, password);
+    return response;
+  } catch (err) {
+    return err;
   }
 };
 
-// Вход с помощью Гугла
- export const  GoogleSigInAPI = () => {
+export const GoogleSignInAPI = () => {
   try {
     let googleProvider = new GoogleAuthProvider();
-    let res = signInWithPopup(auth, googleProvider)
+    let res = signInWithPopup(auth, googleProvider);
     return res;
-  }catch(err){
-   return err
+  } catch (err) {
+    return err;
   }
 };
-
-// Выход
 
 export const onLogout = () => {
   try {
-    signOut(auth)
+    signOut(auth);
   } catch (err) {
-    return err
+    return err;
   }
-}
+};

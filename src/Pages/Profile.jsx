@@ -1,13 +1,12 @@
-import React, {useState, useEffect} from 'react'
-import ProfileComponent from '../components/ProfileComponent'
+import React, { useEffect, useState } from "react";
+import ProfileComponent from "../components/ProfileComponent";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from '../firebaseConfig';
+import { auth } from "../firebaseConfig";
+import Loader from "../components/common/Loader";
 
-export default function Profile() {
+export default function Profile({ currentUser }) {
   const [loading, setLoading] = useState(true);
-
-  
   let navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
@@ -18,7 +17,5 @@ export default function Profile() {
       }
     });
   }, []);
-
-  return <ProfileComponent />;
-  
+  return loading ? <Loader /> : <ProfileComponent currentUser={currentUser} />;
 }
